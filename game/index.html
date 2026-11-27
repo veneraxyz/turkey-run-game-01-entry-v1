@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Turkey Run: Thanksgiving Escape</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #2b1a0e; height: 100%; }
+  body { display: flex; align-items: center; justify-content: center; font-family: Georgia, 'Times New Roman', serif; }
+  #wrap { position: relative; width: 1280px; height: 720px; max-width: 100vw; max-height: 100vh; }
+  canvas { display: block; width: 100%; height: 100%; background: #f7c873; }
+  #hud {
+    position: absolute; top: 0; left: 0; right: 0; display: none;
+    justify-content: space-between; align-items: flex-start;
+    padding: 12px 18px; pointer-events: none;
+    color: #fff8e7; text-shadow: 0 2px 0 rgba(60, 25, 0, .55);
+    font-size: 22px; font-weight: bold;
+  }
+  #hud .hearts { color: #ff5a5a; letter-spacing: 2px; }
+  #hud .stage { font-size: 16px; opacity: .9; text-align: center; }
+  #hud .farmerbar { width: 220px; height: 12px; border: 2px solid #fff8e7; border-radius: 6px; overflow: hidden; background: rgba(0,0,0,.35); }
+  #hud .farmerfill { height: 100%; background: #e23b2e; width: 80%; }
+  #hint {
+    position: absolute; bottom: 10px; left: 0; right: 0; text-align: center;
+    color: #fff8e7; font-size: 15px; text-shadow: 0 1px 0 rgba(60,25,0,.6);
+    pointer-events: none; display: none;
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="1280" height="720"></canvas>
+  <div id="hud">
+    <div>
+      <div id="hud-score">SCORE 0</div>
+      <div id="hud-dist">0 m</div>
+      <div class="hearts" id="hud-lives">&#10084;&#10084;&#10084;</div>
+    </div>
+    <div class="stage">
+      <div id="hud-stage">FARMYARD</div>
+      <div class="farmerbar"><div class="farmerfill" id="hud-farmer"></div></div>
+      <div style="font-size:13px">FARMER</div>
+    </div>
+    <div id="hud-corn">&#127829; 0</div>
+  </div>
+  <div id="hint">Arrows / WASD move &nbsp;&middot;&nbsp; Space jump &nbsp;&middot;&nbsp; M mute &nbsp;&middot;&nbsp; R restart</div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
